@@ -17,7 +17,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Libelle</th>
-                <th scope="col">Type du mouvement</th>
+                <th scope="col">Type</th>
                 <th scope="col">Modifier</th>
             </tr>
             </thead>
