@@ -14,7 +14,8 @@ class CentreController extends Controller
      */
     public function index()
     {
-        //
+        $centres = Centre::all();
+        return view('centres.index', compact('centres'));
     }
 
     /**
@@ -24,18 +25,29 @@ class CentreController extends Controller
      */
     public function create()
     {
-        //
+        return view('centres.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'libelle' => 'required',
+        ]);
+
+        Centre::create([
+            'libelle' => $request->get('libelle'),
+            'ville' => $request->get('ville'),
+        ]);
+        return redirect()->route('centres.index')
+            ->with('success', 'Le centre a était créer avec succes');
     }
 
     /**
@@ -57,18 +69,29 @@ class CentreController extends Controller
      */
     public function edit(Centre $centre)
     {
-        //
+        return view('centres.edit', compact('centre'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Centre  $centre
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Centre $centre
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Centre $centre)
     {
+        $this->validate($request, [
+            'libelle' => 'required',
+        ]);
+
+        $centre->update([
+            'libelle' => $request->get('libelle'),
+            'ville' => $request->get('ville'),
+        ]);
+        return redirect()->route('centres.index')
+            ->with('success', 'mise a jour du centre éffectuer avec succes');
         //
     }
 
