@@ -6,10 +6,10 @@
     <div class="container">
         <div class="row justify-content-between mb-2">
             <div class="col">
-                <h4>Liste des résultats</h4>
+                <h4>Résultat N°: {{ $resultat->id }} du {{ $resultat->date_document->format('d-m-Y') }}</h4>
             </div>
             <div class="col text-right">
-                <a class="btn btn-primary" href="{{ route('resultats.create') }}">Ajouter</a>
+                <a class="btn btn-primary" href="{{ route('sub-resultats.create', $resultat) }}">Ajouter un sous résultat</a>
             </div>
         </div>
         <table class="table table-striped">
@@ -22,12 +22,9 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($resultats as $resultat)
+            @foreach($subResultats as $subResultat)
                 <tr>
-                    <th scope="row">{{ $resultat->id }}</th>
-                    <td>{{ $resultat->date_document }}</td>
-                    <td>{{ $resultat->Centre->libelle }} - {{ $resultat->Centre->ville }}</td>
-                    <td><a href="{{ route('resultats.show', $resultat) }}" class="btn btn-primary">Afficher</a></td>
+                    <th scope="row">{{ $subResultat->id }}</th>
                 </tr>
             @endforeach
             </tbody>

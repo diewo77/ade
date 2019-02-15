@@ -34,6 +34,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('resultats.index') }}">Resultats</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('centres.index') }}">Centres</a>
                 </li>
             </ul>

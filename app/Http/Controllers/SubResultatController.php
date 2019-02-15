@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Resultat;
 use App\SubResultat;
 use Illuminate\Http\Request;
 
@@ -20,22 +21,59 @@ class SubResultatController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Resultat $resultat
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Resultat $resultat)
     {
-        //
+        return view('sub-resultats.create', compact('resultat'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Resultat $resultat
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request, Resultat $resultat)
     {
-        //
+        $this->validate($request, [
+            'centre_id' => 'required',
+            'date_document' => 'required|date',
+            'date_prelevement' => 'date|nullable',
+            'date_passage' => 'date|nullable',
+            'date_lecture' => 'date|nullable',
+            'nom_preleveur' => 'string|nullable',
+            'passage_par' => 'string|nullable',
+            'lecture_par' => 'string|nullable',
+            'confirme_par' => 'string|nullable'
+        ]);
+
+        SubResultat::create([
+            'resultat_id' => $resultat->id,
+            'date_reception' => $request->get('date_reception'),
+            'code' => $request->get('code'),
+            'adresse' => $request->get('adresse'),
+            'result_1' => $request->get('result_1'),
+            'valid_1' => $request->get('valid_1'),
+            'result_2' => $request->get('result_2'),
+            'valid_2' => $request->get('valid_2'),
+            'result_3' => $request->get('result_3'),
+            'valid_3' => $request->get('valid_3'),
+            'result_4' => $request->get('result_4'),
+            'valid_4' => $request->get('valid_4'),
+            'result_5' => $request->get('result_5'),
+            'valid_5' => $request->get('valid_5'),
+            'result_6' => $request->get('result_6'),
+            'valid_6' => $request->get('valid_6'),
+            'result_7' => $request->get('result_7'),
+            'valid_7' => $request->get('valid_7'),
+            'obs' => $request->get('obs'),
+        ]);
+        return redirect()->route('resultats.index')
+            ->with('success', 'Le résultat a était créer avec succes');
     }
 
     /**

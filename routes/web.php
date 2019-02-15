@@ -31,6 +31,14 @@ Route::get('/resultats/{resultat}', 'ResultatController@show')->name('resultats.
 Route::patch('/resultats/{resultat}', 'ResultatController@update')->name('resultats.update');
 Route::get('/resultats/{resultat}/edit', 'ResultatController@edit')->name('resultats.edit');
 
+// Resultats
+Route::get('/sub-resultats', 'SubResultatController@index')->name('sub-resultats.index');
+Route::post('/sub-resultats/{resultat}', 'SubResultatController@store')->name('sub-resultats.store');
+Route::get('/sub-resultats/{resultat}/create', 'SubResultatController@create')->name('sub-resultats.create');
+Route::get('/sub-resultats/{subResultat}', 'SubResultatController@show')->name('sub-resultats.show');
+Route::patch('/sub-resultats/{subResultat}', 'SubResultatController@update')->name('sub-resultats.update');
+Route::get('/sub-resultats/{subResultat}/edit', 'SubResultatController@edit')->name('sub-resultats.edit');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
