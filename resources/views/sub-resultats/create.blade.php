@@ -2,18 +2,23 @@
 
 @section('title', 'Ajouté un centre')
 
+@section('mycss')
+    <link rel="stylesheet" href={{ URL::asset('css/bootstrap/bootstrap-datepicker.min.css') }}>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="col">
-            <h4>Ajouté une entrée au résultat N°: {{ $resultat->id }} du {{ $resultat->date_document->format('d-m-Y') }}</h4>
+            <h4>Ajouté une entrée au résultat N°: {{ $resultat->id }}
+                du {{ $resultat->date_document->format('d-m-Y') }}</h4>
         </div>
         <form action="{{ route('sub-resultats.store', $resultat) }}" method="POST">
             @csrf
 
             <div class="form-group row">
-                <label for="date_reception" class="col-sm-2 col-form-label">date_reception</label>
+                <label for="date_reception" class="col-sm-2 col-form-label">Date de reception</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" id="date_reception" name="date_reception" required
+                    <input type="text" class="form-control datepicker" id="date_reception" name="date_reception" required
                            placeholder="date_reception">
                 </div>
             </div>
@@ -106,9 +111,22 @@
             <div class="form-group row">
                 <label for="code" class="col-sm-2 col-form-label">OBS</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" name="obs" id="obs" cols="10" rows="3" placeholder="Observation"></textarea>
+                    <textarea class="form-control" name="obs" id="obs" cols="10" rows="3"
+                              placeholder="Observation"></textarea>
                 </div>
             </div>
         </form>
     </div>
+@endsection
+
+@section('myjs')
+    <script src={{ URL::asset('js/bootstrap/bootstrap-datepicker.min.js') }}></script>
+    <script src={{ URL::asset('js/bootstrap/bootstrap-datepicker.fr.js') }}></script>
+    <script>
+        $('.datepicker').datepicker({
+            language: 'fr',
+            autoclose: true,
+            todayHighlight: true
+        });
+    </script>
 @endsection

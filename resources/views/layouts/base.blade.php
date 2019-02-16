@@ -6,18 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADE - @yield('title')</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href={{ URL::asset('css/bootstrap/bootstrap.min.css') }}>
+    @yield('mycss')
     <style>
         h4 {
-            font-family: 'Raleway', sans-serif;
-            font-weight: 600;
             color: orangered;
         }
 
         table {
             font-size: 1em;
-            font-family: 'Raleway', sans-serif;
             font-weight: 300;
         }
     </style>
@@ -55,8 +52,9 @@
     @endif
     @yield('content')
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src={{ URL::asset('js/jquery-3.3.1.slim.min.js') }}></script>
+<script src={{ URL::asset('js/popper.min.js') }}></script>
+<script src={{ URL::asset('js/bootstrap/bootstrap.min.js') }}></script>
+@yield('myjs')
 </body>
 </html>
