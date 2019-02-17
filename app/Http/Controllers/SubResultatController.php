@@ -40,15 +40,24 @@ class SubResultatController extends Controller
     public function store(Request $request, Resultat $resultat)
     {
         $this->validate($request, [
-            'centre_id' => 'required',
-            'date_document' => 'required|date',
-            'date_prelevement' => 'date|nullable',
-            'date_passage' => 'date|nullable',
-            'date_lecture' => 'date|nullable',
-            'nom_preleveur' => 'string|nullable',
-            'passage_par' => 'string|nullable',
-            'lecture_par' => 'string|nullable',
-            'confirme_par' => 'string|nullable'
+            'date_reception' => 'date|required',
+            'code' => 'string|required',
+            'adresse' => 'string|required',
+            'result_1' => 'string|nullable',
+            'valid_1' => 'accepted',
+            'result_2' => 'string|nullable',
+            'valid_2' => 'accepted',
+            'result_3' => 'string|nullable',
+            'valid_3' => 'accepted',
+            'result_4' => 'string|nullable',
+            'valid_4' => 'accepted',
+            'result_5' => 'string|nullable',
+            'valid_5' => 'accepted',
+            'result_6' => 'string|nullable',
+            'valid_6' => 'accepted',
+            'result_7' => 'string|nullable',
+            'valid_7' => 'accepted',
+            'obs' => 'string|nullable',
         ]);
 
         SubResultat::create([
@@ -79,7 +88,7 @@ class SubResultatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SubResultat  $subResultat
+     * @param  \App\SubResultat $subResultat
      * @return \Illuminate\Http\Response
      */
     public function show(SubResultat $subResultat)
@@ -90,7 +99,7 @@ class SubResultatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SubResultat  $subResultat
+     * @param  \App\SubResultat $subResultat
      * @return \Illuminate\Http\Response
      */
     public function edit(SubResultat $subResultat)
@@ -101,8 +110,8 @@ class SubResultatController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SubResultat  $subResultat
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\SubResultat $subResultat
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, SubResultat $subResultat)
@@ -113,7 +122,7 @@ class SubResultatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SubResultat  $subResultat
+     * @param  \App\SubResultat $subResultat
      * @return \Illuminate\Http\Response
      */
     public function destroy(SubResultat $subResultat)

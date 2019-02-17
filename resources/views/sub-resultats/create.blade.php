@@ -19,91 +19,119 @@
                 <label for="date_reception" class="col-sm-2 col-form-label">Date de reception</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control datepicker" id="date_reception" name="date_reception" required
-                           placeholder="date_reception">
+                           placeholder="date_reception" value="{{ \Carbon\Carbon::now()->format('d/m/Y') }}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="code" class="col-sm-2 col-form-label">code</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="code" name="code" placeholder="code">
+                    <input type="text" class="form-control" id="code" name="code" placeholder="code" value="{{old('code')}}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="adresse" class="col-sm-2 col-form-label">adresse</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="adresse">
+                    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="adresse" value="{{old('adresse')}}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="result_1" class="col-sm-2 col-form-label">CL<sub>2</sub></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_1" name="result_1" placeholder="mg/l">
+                    <input type="text" class="form-control" id="result_1" name="result_1" placeholder="mg/l" value="{{old('result_1')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_1" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_1" value="1"
+                           @if (old('valid_1') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_1">mg/l - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_2" class="col-sm-2 col-form-label">GT 37°C (<=20/ml)</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_2" name="result_2" placeholder="<=20/ml">
+                    <input type="text" class="form-control" id="result_2" name="result_2" placeholder="<=20/ml" value="{{old('result_2')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_2" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_2" value="1"
+                           @if (old('valid_2') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_2"><=20/ml - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_3" class="col-sm-2 col-form-label">GT 22°C</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_3" name="result_3" placeholder="<= 100/ml">
+                    <input type="text" class="form-control" id="result_3" name="result_3" placeholder="<= 100/ml" value="{{old('result_3')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_3" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_3" value="1"
+                           @if (old('valid_3') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_3"><= 100/ml - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_4" class="col-sm-2 col-form-label">C.T 37°C</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_4" name="result_4" placeholder="< 10/100 ml">
+                    <input type="text" class="form-control" id="result_4" name="result_4" placeholder="< 10/100 ml" value="{{old('result_4')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_4" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_4" value="1"
+                           @if (old('valid_4') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_4"><10/100 ml - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_5" class="col-sm-2 col-form-label">C.F 44°C</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_5" name="result_5" placeholder="00/100 ml">
+                    <input type="text" class="form-control" id="result_5" name="result_5" placeholder="00/100 ml" value="{{old('result_5')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_5" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_5" value="1"
+                           @if (old('valid_5') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_5">00/100 ml - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_6" class="col-sm-2 col-form-label">S.F 37°C</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_6" name="result_6" placeholder="00/100 ml">
+                    <input type="text" class="form-control" id="result_6" name="result_6" placeholder="00/100 ml" value="{{old('result_6')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_6" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_6" value="1"
+                           @if (old('valid_6') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_6">00/100 ml - Résultat valide ?</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="result_7" class="col-sm-2 col-form-label">Clost 37°C</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" id="result_7" name="result_7" placeholder="00/100 ml">
+                    <input type="text" class="form-control" id="result_7" name="result_7" placeholder="00/100 ml" value="{{old('result_7')}}">
                 </div>
                 <div class="col-sm-3 custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="valid_7" value="1">
+                    <input type="checkbox" class="custom-control-input" id="valid_7" value="1"
+                           @if (old('valid_7') === 1)
+                               checked
+                           @endif
+                    >
                     <label class="custom-control-label" for="valid_7">00/100 ml - Résultat valide ?</label>
                 </div>
             </div>
@@ -113,6 +141,12 @@
                 <div class="col-sm-10">
                     <textarea class="form-control" name="obs" id="obs" cols="10" rows="3"
                               placeholder="Observation"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Validé</button>
                 </div>
             </div>
         </form>
