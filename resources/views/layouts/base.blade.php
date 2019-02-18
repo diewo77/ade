@@ -50,6 +50,14 @@
             </ul>
         </div>
     @endif
+    @if(Session::has('message'))
+        <div class="alert alert-info">
+            <ul>
+                <li>{{ Session::get('message') }}</li>
+            </ul>
+        </div>
+    @endif
+
     @yield('content')
 </div>
 <script src={{ URL::asset('js/jquery-3.3.1.slim.min.js') }}></script>

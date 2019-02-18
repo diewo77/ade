@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Résultat du</th>
+                <th scope="col">Centre</th>
                 <th scope="col">Contiens les codes</th>
                 <th scope="col">Afficher</th>
             </tr>
@@ -27,7 +28,23 @@
                     <th scope="row">{{ $resultat->id }}</th>
                     <td>{{ $resultat->date_document }}</td>
                     <td>{{ $resultat->Centre->libelle }} - {{ $resultat->Centre->ville }}</td>
-                    <td><a href="{{ route('resultats.show', $resultat) }}" class="btn btn-primary">Afficher</a></td>
+                    <td>
+                        @foreach($resultat->SubResultats as $k => $SubResultat)
+                            @if($k > 0)
+                                , {{ $SubResultat->code }}
+                            @else
+                                {{ $SubResultat->code }}
+                            @endif
+                        @endforeach
+                    </td>
+                    <td>
+                        <a href="{{ route('resultats.show', $resultat) }}" class="btn btn-primary">Afficher</a>
+                        <form action="{{ route('resultats.destroy', $resultat) }}" method="POST" class="form-inline">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                        <button class="btn btn-danger" type="submit">Supprimer le résultat</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

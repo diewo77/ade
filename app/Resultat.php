@@ -16,7 +16,8 @@ class Resultat extends Model
 
     public function SubResultats()
     {
-        return $this->hasMany('App\SubResultat', 'resultat_id', 'id');
+        return $this->hasMany('App\SubResultat');
+        return SubResultat::where('resultat_id', $this->id)->get();
     }
 
 }

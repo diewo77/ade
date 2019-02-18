@@ -24,14 +24,9 @@ Route::patch('/centres/{centre}', 'CentreController@update')->name('centres.upda
 Route::get('/centres/{centre}/edit', 'CentreController@edit')->name('centres.edit');
 
 // Resultats
-Route::get('/resultats', 'ResultatController@index')->name('resultats.index');
-Route::post('/resultats', 'ResultatController@store')->name('resultats.store');
-Route::get('/resultats/create', 'ResultatController@create')->name('resultats.create');
-Route::get('/resultats/{resultat}', 'ResultatController@show')->name('resultats.show');
-Route::patch('/resultats/{resultat}', 'ResultatController@update')->name('resultats.update');
-Route::get('/resultats/{resultat}/edit', 'ResultatController@edit')->name('resultats.edit');
+Route::resource('resultats', 'ResultatController');
 
-// Resultats
+// SubResultats
 Route::get('/sub-resultats', 'SubResultatController@index')->name('sub-resultats.index');
 Route::post('/sub-resultats/{resultat}', 'SubResultatController@store')->name('sub-resultats.store');
 Route::get('/sub-resultats/{resultat}/create', 'SubResultatController@create')->name('sub-resultats.create');

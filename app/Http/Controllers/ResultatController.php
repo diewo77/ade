@@ -70,19 +70,19 @@ class ResultatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Resultat  $resultat
+     * @param  \App\Resultat $resultat
      * @return \Illuminate\Http\Response
      */
     public function show(Resultat $resultat)
     {
-        $subResultats = $resultat->SubResultats();
+        $subResultats = $resultat->SubResultats()->get();
         return view('resultats.show', compact('resultat', 'subResultats'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Resultat  $resultat
+     * @param  \App\Resultat $resultat
      * @return \Illuminate\Http\Response
      */
     public function edit(Resultat $resultat)
@@ -93,8 +93,8 @@ class ResultatController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Resultat  $resultat
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Resultat $resultat
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Resultat $resultat)
@@ -105,11 +105,24 @@ class ResultatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Resultat  $resultat
+     * @param  \App\Resultat $resultat
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Resultat $resultat)
     {
-        //
+        $num = $resultat->SubResultats()->count();
+        if ($num === 0) {
+            try {
+                $resultat->delete();
+                return redirect('/resultats');
+
+            } catch (\Illuminate\Database\QueryException $e) {
+                return redirect('/resultats')->with('message', 'Il y a eu une erreur');
+            }
+        } else {
+            return redirect('/resultats')->with('message', 'Ce résultat contiens des entrées !');
+        }
+
     }
 }

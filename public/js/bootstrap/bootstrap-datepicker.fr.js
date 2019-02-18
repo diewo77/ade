@@ -8,5 +8,5 @@ $.fn.datepicker.dates['fr'] = {
     monthsTitle: "Mois",
     clear: "Effacer",
     weekStart: 1,
-    format: "dd/mm/yyyy"
+    format: "dd-mm-yyyy"
 };

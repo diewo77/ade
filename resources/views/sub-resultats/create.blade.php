@@ -19,7 +19,7 @@
                 <label for="date_reception" class="col-sm-2 col-form-label">Date de reception</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control datepicker" id="date_reception" name="date_reception" required
-                           placeholder="date_reception" value="{{ \Carbon\Carbon::now()->format('d/m/Y') }}">
+                           placeholder="date_reception" value="{{old('date_reception')}}">
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
                 <label for="code" class="col-sm-2 col-form-label">OBS</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" name="obs" id="obs" cols="10" rows="3"
-                              placeholder="Observation"></textarea>
+                              placeholder="Observation">{{old('obs')}}</textarea>
                 </div>
             </div>
 
@@ -160,7 +160,8 @@
         $('.datepicker').datepicker({
             language: 'fr',
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            format: "dd-mm-yyyy",
         });
     </script>
 @endsection
