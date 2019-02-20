@@ -26,7 +26,7 @@
             @foreach($resultats as $resultat)
                 <tr>
                     <th scope="row">{{ $resultat->id }}</th>
-                    <td>{{ $resultat->date_document }}</td>
+                    <td>{{ $resultat->date_document->format('d-m-Y') }}</td>
                     <td>{{ $resultat->Centre->libelle }} - {{ $resultat->Centre->ville }}</td>
                     <td>
                         @foreach($resultat->SubResultats as $k => $SubResultat)
@@ -38,11 +38,12 @@
                         @endforeach
                     </td>
                     <td>
-                        <a href="{{ route('resultats.show', $resultat) }}" class="btn btn-primary">Afficher</a>
-                        <form action="{{ route('resultats.destroy', $resultat) }}" method="POST" class="form-inline">
+                        <a href="{{ route('resultats.show', $resultat) }}" class="btn btn-success">Afficher</a>
+                        <a href="{{ route('resultats.edit', $resultat) }}" class="btn btn-warning">Modifier</a>
+                        <form action="{{ route('resultats.destroy', $resultat) }}" method="POST" class="d-inline">
                             @csrf
                             {{ method_field('DELETE') }}
-                        <button class="btn btn-danger" type="submit">Supprimer le résultat</button>
+                        <button class="btn btn-danger d-inline" type="submit">Supprimer le résultat</button>
                         </form>
                     </td>
                 </tr>

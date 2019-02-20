@@ -20,7 +20,7 @@
                 <label for="date_reception" class="col-sm-2 col-form-label">Date de reception</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control datepicker" id="date_reception" name="date_reception" required
-                           placeholder="date_reception" value="{{$subResultat->date_reception->format('d-m-Y')}}">
+                           placeholder="date_reception" value="{{$subResultat->date_reception ? $subResultat->date_reception->format('d-m-Y') : null}}">
                 </div>
             </div>
 

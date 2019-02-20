@@ -40,7 +40,7 @@
         </div>
     </div>
 </nav>
-<div class="mt-4">
+<div class="container mt-4">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -52,9 +52,7 @@
     @endif
     @if(Session::has('message'))
         <div class="alert alert-info">
-            <ul>
-                <li>{{ Session::get('message') }}</li>
-            </ul>
+                <p>{{ Session::get('message') }}</p>
         </div>
     @endif
 

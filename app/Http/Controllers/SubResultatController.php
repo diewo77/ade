@@ -169,9 +169,11 @@ class SubResultatController extends Controller
      *
      * @param  \App\SubResultat $subResultat
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(SubResultat $subResultat)
     {
-        //
+        $subResultat->delete();
+        return back();
     }
 }

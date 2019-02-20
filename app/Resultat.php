@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Resultat extends Model
 {
     public $guarded = ['id'];
-    protected $dates = ['date_document'];
+    protected $dates = ['date_document', 'date_prelevement', 'date_passage', 'date_lecture'];
 
     public function Centre()
     {

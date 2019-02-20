@@ -32,6 +32,7 @@ Route::post('/sub-resultats/{resultat}', 'SubResultatController@store')->name('s
 Route::get('/sub-resultats/{resultat}/create', 'SubResultatController@create')->name('sub-resultats.create');
 Route::get('/sub-resultats/{subResultat}', 'SubResultatController@show')->name('sub-resultats.show');
 Route::patch('/sub-resultats/{subResultat}', 'SubResultatController@update')->name('sub-resultats.update');
+Route::delete('/sub-resultats/{subResultat}', 'SubResultatController@destroy')->name('sub-resultats.destroy');
 Route::get('/sub-resultats/{subResultat}/edit', 'SubResultatController@edit')->name('sub-resultats.edit');
 
 Auth::routes();
