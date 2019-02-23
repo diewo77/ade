@@ -13,5 +13,12 @@
             <p>On est le: {{ Carbon\Carbon::now()->format('d-m-Y H:m') }}</p>
         </div>
 
+
     </div>
+
+    <div id="app"></div>
+@endsection
+
+@section('myjs')
+    <script src={{ URL::asset('js/app.js') }}></script>
 @endsection

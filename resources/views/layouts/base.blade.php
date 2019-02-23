@@ -8,6 +8,7 @@
     <title>ADE - @yield('title')</title>
     <link rel="stylesheet" href={{ URL::asset('css/bootstrap/bootstrap.min.css') }}>
     @yield('mycss')
+    @yield('headjs')
     <style>
         h4 {
             color: orangered;
