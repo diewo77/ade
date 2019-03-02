@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row col">
-            <p>On est le: {{ Carbon\Carbon::now()->format('d-m-Y H:m') }}</p>
+            <p>On est le: {{ Carbon\Carbon::now()->format('d-m-Y') }}</p>
         </div>
 
 

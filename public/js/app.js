@@ -24639,13 +24639,34 @@ var Example =
 function (_Component) {
   _inherits(Example, _Component);
 
-  function Example() {
+  function Example(props) {
+    var _this;
+
     _classCallCheck(this, Example);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Example).call(this, props));
+    _this.state = {
+      date: null,
+      center_id: null
+    };
+    return _this;
   }
 
   _createClass(Example, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        filtered: this.props.items
+      });
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState({
+        filtered: nextProps.items
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -24653,14 +24674,18 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
+        className: "col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component! test")))));
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "formGroupExampleInput"
+      }, "Example label"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: "Search..."
+      }))))));
     }
   }]);
 
@@ -24670,7 +24695,7 @@ function (_Component) {
 
 
 if (document.getElementById('app')) {
-  console.log('test');
+  console.log('test yop');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('app'));
 }
 
