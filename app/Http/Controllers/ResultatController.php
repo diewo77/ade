@@ -20,6 +20,12 @@ class ResultatController extends Controller
         return view('resultats.index', compact('resultats'));
     }
 
+    protected function apiIndex()
+    {
+        $resultats = Resultat::with('SubResultats', 'Centre')->get();
+        return $resultats;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

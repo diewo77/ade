@@ -106,6 +106,7 @@ class SubResultatController extends Controller
     public function edit(SubResultat $subResultat)
     {
         $resultat = $subResultat->Resultat();
+
         return view('sub-resultats.edit', compact('subResultat', 'resultat'));
     }
 

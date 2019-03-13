@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Resultats from './components/Resultats'
 
 export default class Example extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ export default class Example extends Component {
                                 <input type="text" className="form-control" placeholder="Search..."/>
                             </div>
                         </form>
+                        <Resultats/>
                     </div>
                 </div>
             </div>
